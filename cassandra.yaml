@@ -4,7 +4,7 @@ ssl_storage_port: 7001
 start_native_transport: true
 native_transport_port: 9042
 start_rpc: true
-broadcast_address: cassandra
+broadcast_address: localhost
 listen_address: localhost
 rpc_address: 0.0.0.0
 rpc_port: 9160
