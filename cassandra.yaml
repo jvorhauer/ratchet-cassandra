@@ -11,6 +11,11 @@ broadcast_rpc_address: 192.168.42.202
 rpc_port: 9160
 rpc_keepalive: true
 rpc_server_type: sync
+seed_provider:
+  - class_name: org.apache.cassandra.locator.SimpleSeedProvider
+    parameters:
+      - seeds: 127.0.0.1
+# fu-bar
 num_tokens: 256
 hinted_handoff_enabled: true
 max_hint_window_in_ms: 10800000 # 3 hours
