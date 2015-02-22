@@ -13,7 +13,8 @@ RUN chown -R $USER:$GROUP /var/lib/cassandra && chown -R $USER:$GROUP /var/log/c
 RUN echo "export PATH=$PATH:$CASSANDRA_HOME/bin" >> /etc/profile
 
 # Add the config file
-ADD cassandra.yaml /etc/cassandra/conf/cassandra.yaml
+#ADD cassandra.yaml /etc/cassandra/conf/cassandra.yaml
+ADD cassandra.yaml /opt/cassandra/conf/cassandra.yaml
 
 # Add the startscript to get going
 ADD run.sh /run.sh
