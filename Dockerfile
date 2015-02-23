@@ -13,12 +13,17 @@ RUN chown -R $USER:$GROUP /var/lib/cassandra && chown -R $USER:$GROUP /var/log/c
 RUN echo "export PATH=$PATH:$CASSANDRA_HOME/bin" >> /etc/profile
 
 # Add the config file
-#ADD cassandra.yaml /etc/cassandra/conf/cassandra.yaml
 ADD cassandra.yaml /opt/cassandra/conf/cassandra.yaml
 
 # Add the startscript to get going
 ADD run.sh /run.sh
 RUN chmod +x /*.sh
+
+ENV SEEDER 127.0.0.1
+ENV BROADCAST_ADDR localhost
+ENV LISTEN_ADDR localhost
+ENV RPC_ADDR 0.0.0.0
+ENV BROADCAST_RPC_ADDR 127.0.0.1
 
 EXPOSE 7199 7000 7001 9160 9042
 

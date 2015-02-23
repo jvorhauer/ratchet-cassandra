@@ -1,21 +1,14 @@
-cluster_name: 'Test Cluster'
+cluster_name: 'cass-dev-cluster'
+# port parameters
 storage_port: 7000
 ssl_storage_port: 7001
-start_native_transport: true
 native_transport_port: 9042
-start_rpc: true
-broadcast_address: localhost
-listen_address: localhost
-rpc_address: 0.0.0.0
-broadcast_rpc_address: 192.168.42.202
 rpc_port: 9160
+# standard fu-bar
 rpc_keepalive: true
 rpc_server_type: sync
-seed_provider:
-  - class_name: org.apache.cassandra.locator.SimpleSeedProvider
-    parameters:
-      - seeds: 127.0.0.1
-# fu-bar
+start_native_transport: true
+start_rpc: true
 num_tokens: 256
 hinted_handoff_enabled: true
 max_hint_window_in_ms: 10800000 # 3 hours
@@ -83,3 +76,13 @@ client_encryption_options:
     keystore_password: cassandra
 internode_compression: all
 inter_dc_tcp_nodelay: false
+# IP config
+#broadcast_address: localhost
+#listen_address: localhost
+#rpc_address: 0.0.0.0
+#broadcast_rpc_address: 192.168.42.202
+#seed_provider:
+#  - class_name: org.apache.cassandra.locator.SimpleSeedProvider
+#    parameters:
+#      - seeds: 127.0.0.1
+
