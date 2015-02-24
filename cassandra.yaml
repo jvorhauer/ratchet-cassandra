@@ -77,12 +77,3 @@ client_encryption_options:
 internode_compression: all
 inter_dc_tcp_nodelay: false
 # IP config
-#broadcast_address: localhost
-#listen_address: localhost
-#rpc_address: 0.0.0.0
-#broadcast_rpc_address: 192.168.42.202
-#seed_provider:
-#  - class_name: org.apache.cassandra.locator.SimpleSeedProvider
-#    parameters:
-#      - seeds: 127.0.0.1
-
