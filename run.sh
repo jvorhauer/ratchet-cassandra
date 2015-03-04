@@ -7,6 +7,9 @@ if [ ! -f /root/.cassandra_config ]; then
 		cp /opt/cassandra/cassandra_template.yaml /opt/cassandra/conf/cassandra.yaml
 	fi
 	
+	# Cluster Name
+	echo "cluster_name: '$CASSANDRA_CLUSTER_NAME'" >> $CONF_FILE
+	
 	# Add IPs
 	echo "broadcast_address: $CASSANDRA_BROADCAST_ADDR" >> $CONF_FILE
 	echo "listen_address: $CASSANDRA_LISTEN_ADDR" >> $CONF_FILE

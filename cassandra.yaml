@@ -1,10 +1,8 @@
-cluster_name: 'cass-dev-cluster'
-# port parameters
+# default config
 storage_port: 7000
 ssl_storage_port: 7001
 native_transport_port: 9042
 rpc_port: 9160
-# standard fu-bar
 rpc_keepalive: true
 rpc_server_type: sync
 start_native_transport: true
@@ -76,4 +74,4 @@ client_encryption_options:
     keystore_password: cassandra
 internode_compression: all
 inter_dc_tcp_nodelay: false
-# IP config
+# Docker Container Config
