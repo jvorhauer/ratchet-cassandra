@@ -1,10 +1,10 @@
 #!/bin/bash
 
-if [ ! -f /root/.cassandra_config ]; then
-	CONF_FILE=/opt/cassandra/conf/cassandra.yaml
+if [ ! -f $CASSANDRA_BASE/.cassandra_config ]; then
+	CONF_FILE=$CASSANDRA_HOME/conf/cassandra.yaml
 	
-	if [ ! -f /opt/cassandra/conf/cassandra.yaml ]; then
-		cp /opt/cassandra/cassandra_template.yaml /opt/cassandra/conf/cassandra.yaml
+	if [ ! -f $CASSANDRA_HOME/conf/cassandra.yaml ]; then
+		cp $CASSANDRA_BASE/cassandra_template.yaml $CASSANDRA_HOME/conf/cassandra.yaml
 	fi
 	
 	# Cluster Name
@@ -22,8 +22,8 @@ if [ ! -f /root/.cassandra_config ]; then
     echo "    parameters:" >> $CONF_FILE
     echo "      - seeds: \"$CASSANDRA_SEEDER\"" >> $CONF_FILE
 	
-    touch /root/.cassandra_config
+    touch $CASSANDRA_BASE/.cassandra_config
 fi
 
 # launch cassandra in the foreground
-/opt/cassandra/bin/cassandra -f
+$CASSANDRA_HOME/bin/cassandra -f
