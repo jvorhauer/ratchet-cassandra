@@ -29,6 +29,7 @@ RUN echo "export CASSANDRA_HOME=$CASSANDRA_HOME" >> /etc/profile
 
 # volumes that can be mounted
 VOLUME ${CASSANDRA_HOME}/conf
+VOLUME ${CASSANDRA_BASE}/data
 
 # defaults
 ENV CASSANDRA_CLUSTER_NAME cassandra_dev
