@@ -1,4 +1,4 @@
-FROM getmajordomus/majord-java
+FROM ratchet/ratchet-java
 MAINTAINER Michael Kuehl <hello@ratchet.cc>
 
 ENV CASSANDRA_VERSION 2.2.4
