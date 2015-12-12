@@ -1,7 +1,7 @@
 FROM getmajordomus/majord-java
 MAINTAINER Michael Kuehl <hello@ratchet.cc>
 
-ENV CASSANDRA_VERSION 2.1.8
+ENV CASSANDRA_VERSION 2.2.4
 ENV CASSANDRA_BASE /opt/cassandra
 ENV CASSANDRA_HOME /opt/cassandra/apache-cassandra
 
@@ -10,7 +10,8 @@ RUN mkdir -p /var/lib/cassandra && mkdir -p /var/log/cassandra && mkdir -p ${CAS
 	
 # Download Apache Cassandra
 WORKDIR /tmp/cassandra
-RUN wget http://www.us.apache.org/dist/cassandra/${CASSANDRA_VERSION}/apache-cassandra-${CASSANDRA_VERSION}-bin.tar.gz
+RUN wget http://artfiles.org/apache.org/cassandra/${CASSANDRA_VERSION}/apache-cassandra-${CASSANDRA_VERSION}-bin.tar.gz
+
 RUN tar -xvzf apache-cassandra-${CASSANDRA_VERSION}-bin.tar.gz -C ${CASSANDRA_BASE}
 RUN mv ${CASSANDRA_BASE}/apache-cassandra-${CASSANDRA_VERSION} ${CASSANDRA_BASE}/apache-cassandra
 
