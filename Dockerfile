@@ -18,6 +18,10 @@ RUN mv ${CASSANDRA_BASE}/apache-cassandra-${CASSANDRA_VERSION} ${CASSANDRA_BASE}
 # Add the config file
 ADD cassandra.yaml ${CASSANDRA_HOME}/conf/cassandra.yaml
 
+# Add the startscript to get going
+ADD run.sh ${CASSANDRA_BASE}/run.sh
+RUN chmod +x ${CASSANDRA_BASE}/*.sh
+
 # setup of the environment
 RUN echo "export PATH=$PATH:$CASSANDRA_BASE/apache-cassandra/bin" >> /etc/profile
 RUN echo "export CASSANDRA_BASE=$CASSANDRA_BASE" >> /etc/profile
@@ -31,5 +35,6 @@ VOLUME ${CASSANDRA_BASE}/data
 EXPOSE 7199 7000 7001 9160 9042
 
 # entrypoint
-WORKDIR $CASSANDRA_HOME
-CMD ["./bin/cassandra -f"]
+WORKDIR $CASSANDRA_BASE
+# run with sh /opt/cassandra/run.sh
+#CMD ["./bin/cassandra -f"]
