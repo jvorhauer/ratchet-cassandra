@@ -1,6 +1,14 @@
 #!/bin/bash
 
-#if [ ! -f $CASSANDRA_BASE/.cassandra_config ]; then
+if [ ! -f $CASSANDRA_BASE/.cassandra_config ]; then
+	if [ ! -f $CASSANDRA_HOME/conf/cassandra.yaml ]; then
+		cp $CASSANDRA_BASE/cassandra_template.yaml $CASSANDRA_HOME/conf/cassandra.yaml
+	fi
+	
+	touch $CASSANDRA_BASE/.cassandra_config
+	
+fi
+
 #	CONF_FILE=$CASSANDRA_HOME/conf/cassandra.yaml
 #	
 #	if [ ! -f $CASSANDRA_HOME/conf/cassandra.yaml ]; then

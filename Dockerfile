@@ -16,7 +16,7 @@ RUN tar -xvzf apache-cassandra-${CASSANDRA_VERSION}-bin.tar.gz -C ${CASSANDRA_BA
 RUN mv ${CASSANDRA_BASE}/apache-cassandra-${CASSANDRA_VERSION} ${CASSANDRA_BASE}/cassandra
 
 # Add the config file
-ADD cassandra.yaml ${CASSANDRA_HOME}/conf/cassandra.yaml
+ADD cassandra.yaml ${CASSANDRA_BASE}/cassandra.yaml
 
 # Add the startscript to get going
 ADD run.sh ${CASSANDRA_BASE}/run.sh
