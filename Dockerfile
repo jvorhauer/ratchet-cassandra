@@ -6,8 +6,9 @@ ENV CASSANDRA_BASE /opt/cassandra
 ENV CASSANDRA_HOME /opt/cassandra/cassandra
 
 # Some folders we need later on
-RUN mkdir -p /var/lib/cassandra && mkdir -p /var/log/cassandra && mkdir -p ${CASSANDRA_BASE}
-	
+#RUN mkdir -p /var/lib/cassandra && mkdir -p /var/log/cassandra && mkdir -p ${CASSANDRA_BASE}
+RUN mkdir -p ${CASSANDRA_BASE}
+
 # Download Apache Cassandra
 WORKDIR /tmp/cassandra
 RUN wget http://artfiles.org/apache.org/cassandra/${CASSANDRA_VERSION}/apache-cassandra-${CASSANDRA_VERSION}-bin.tar.gz
@@ -38,3 +39,4 @@ EXPOSE 7199 7000 7001 9160 9042
 WORKDIR $CASSANDRA_BASE
 # run with sh /opt/cassandra/run.sh
 #CMD ["./bin/cassandra -f"]
+CMD ["sh /opt/cassandra/run.sh"]
