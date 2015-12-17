@@ -39,4 +39,4 @@ EXPOSE 7199 7000 7001 9160 9042
 WORKDIR $CASSANDRA_BASE
 # run with sh /opt/cassandra/run.sh
 #CMD ["./bin/cassandra -f"]
-CMD ["sh /opt/cassandra/run.sh"]
+#CMD ["sh /opt/cassandra/run.sh"]
