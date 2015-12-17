@@ -18,7 +18,8 @@ Run with local folders mounted
 
 ## Configure Cassandra
 
-Mount the configuration file (cassandra.yaml) to a local folder by adding e.g. `-v /opt/conf/cassandra:/opt/cassandra/cassandra/conf` and change the following parameters:
+Mount the configuration file (cassandra.yaml) to a local folder by adding e.g. 
+`-v /opt/conf/cassandra:/opt/cassandra/cassandra/conf` and change the following parameters:
 
 ```yaml
 listen_address: localhost
