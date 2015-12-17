@@ -1,5 +1,5 @@
 # ratchetcc/ratchet-cassandra
-Docker image for Apache Cassandra (single node, development only)
+Docker image for Apache Cassandra (single node or cluster)
 
 ## Usage
 
@@ -10,6 +10,23 @@ To create the image `ratchetcc/ratchet-cassandra` execute the following command:
 
 ## Run
 
-	docker create --name cassandra -e CASSANDRA_BROADCAST_RPC_ADDR=192.168.178.22 -p 7199:7199 -p 7000:7000 -p 7001:7001 -p 9160:9160 -p 9042:9042 ratchetcc/ratchet-cassandra sh /opt/cassandra/run.sh
+	docker create --name cassandra --net=host -p 7199:7199 -p 7000:7000 -p 7001:7001 -p 9160:9160 -p 9042:9042 ratchet/ratchet-cassandra sh /opt/cassandra/run.sh
 
-For further reference see [https://github.com/apache/incubator-usergrid](https://github.com/apache/incubator-usergrid) and [https://www.digitalocean.com/community/tutorials/how-to-install-cassandra-and-run-a-single-node-cluster-on-a-ubuntu-vps](https://www.digitalocean.com/community/tutorials/how-to-install-cassandra-and-run-a-single-node-cluster-on-a-ubuntu-vps)
+Run with local folders mounted
+
+	docker create --name cassandra --net=host -v /opt/conf/cassandra:/opt/cassandra/cassandra/conf -v /opt/data/volumes/cassandra:/opt/cassandra/data -p 7199:7199 -p 7000:7000 -p 7001:7001 -p 9160:9160 -p 9042:9042 ratchet/ratchet-cassandra sh /opt/cassandra/run.sh
+
+## Configure Cassandra
+
+Mount the configuration file (cassandra.yaml) to a local folder by adding e.g. `-v /opt/conf/cassandra:/opt/cassandra/cassandra/conf` and change the following parameters:
+
+```yaml
+listen_address: localhost
+rpc_address: localhost
+broadcast_rpc_address: localhost
+
+seed_provider:
+    - class_name: org.apache.cassandra.locator.SimpleSeedProvider
+      parameters:
+          - seeds: "seeders1,seeder2"
+```

@@ -5,6 +5,7 @@ cluster_name: 'cassandra_cluster'
 # listeners etc
 
 listen_address: localhost
+rpc_address: localhost
 # listen_interface: eth0
 # listen_interface_prefer_ipv6: false
 # broadcast_address: 1.2.3.4 -> same as listen_address if not defined !
@@ -22,10 +23,9 @@ seed_provider:
 
 # transports 
 start_native_transport: true
-native_transport_port: 9042
-
 start_rpc: true
-rpc_address: localhost
+
+native_transport_port: 9042
 rpc_port: 9160
 
 # replicata locality
