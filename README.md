@@ -4,17 +4,21 @@ Docker image for Apache Cassandra (single node or cluster)
 ## Usage
 
 To create the image `ratchetcc/ratchet-cassandra` execute the following command:
-	
-	docker build -t ratchetcc/ratchet-cassandra .
-	
+
+	docker build -t ratchetcc/ratchet-cassandra .	
 
 ## Run
 
-	docker create --name cassandra --net=host -p 7199:7199 -p 7000:7000 -p 7001:7001 -p 9160:9160 -p 9042:9042 ratchet/ratchet-cassandra sh /opt/cassandra/run.sh
+	docker create --name cassandra --net=host \
+		-p 7199:7199 -p 7000:7000 -p 7001:7001 -p 9160:9160 -p 9042:9042 \
+		ratchet/ratchet-cassandra sh /opt/cassandra/run.sh
 
 Run with local folders mounted
 
-	docker create --name cassandra --net=host -v /opt/conf/cassandra:/opt/cassandra/cassandra/conf -v /opt/data/volumes/cassandra:/opt/cassandra/data -p 7199:7199 -p 7000:7000 -p 7001:7001 -p 9160:9160 -p 9042:9042 ratchet/ratchet-cassandra sh /opt/cassandra/run.sh
+	docker create --name cassandra --net=host \
+		-p 7199:7199 -p 7000:7000 -p 7001:7001 -p 9160:9160 -p 9042:9042 \
+		-v /opt/conf/cassandra:/opt/cassandra/cassandra/conf -v /opt/data/volumes/cassandra:/opt/cassandra/data \
+		ratchet/ratchet-cassandra sh /opt/cassandra/run.sh
 
 ## Configure Cassandra
 
