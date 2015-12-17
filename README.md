@@ -35,3 +35,5 @@ seed_provider:
       parameters:
           - seeds: "seeders1,seeder2"
 ```
+
+Reference https://docs.datastax.com/en/cassandra/2.1/cassandra/configuration/configTOC.html for further details.
